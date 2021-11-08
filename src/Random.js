@@ -4,28 +4,28 @@ import React, {Component} from 'react';
 class Random extends React.Component {
     constructor(props){
         super(props);
-        this.state = {num: 1};
-        this.genRandom = this.genRandom.bind(this);
-        
+        this.state = {score: 0};
+       
     }
     
-genRandom(){
-    let rand = Math.floor(Math.random()*10);
-    this.setState({num: rand});
-}
+    tripleKill = ()=> {
+        this.setState({score: this.state.score + 1});
+
+        this.setState({score: this.state.score + 1});
+  
+        
+    };
     
+                        
     render(){
         return(
             <div>
                 <h1>
-                    Number is: {this.state.num}
+                    {this.state.score}
                 </h1>
-                {this.state.num === 7 && <h2>You win!</h2>}
-                {this.state.num !== 7 && <button onClick = {this.genRandom}>
-                    random number
-                </button>}
-                
-               
+                 <button onClick = {this.tripleKill}>
+                    Triple kill
+                </button>                               
             </div>
         )
     }
